@@ -33,6 +33,7 @@ module InstanceAgent
         :codedeploy_test_profile => 'prod',
         :on_premises_config_file => '/etc/codedeploy-agent/conf/codedeploy.onpremises.yml',
         :proxy_uri => nil,
+        :bucket_region => nil,
         :enable_deployments_log => true
       })
     end

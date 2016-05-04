@@ -175,8 +175,8 @@ module InstanceAgent
 
         private
         def download_from_s3(deployment_spec, bucket, key, version, etag)
-          log(:debug, "Downloading artifact bundle from bucket '#{bucket}' and key '#{key}', version '#{version}', etag '#{etag}'")
-          region = ENV['AWS_REGION'] || InstanceMetadata.region
+          region = ENV['AWS_REGION'] || InstanceAgent::Config.config[:bucket_region] || InstanceMetadata.region
+          log(:debug, "Downloading artifact bundle from bucket '#{bucket}', region '#{region}' and key '#{key}', version '#{version}', etag '#{etag}'")
           
           proxy_uri = nil
           if InstanceAgent::Config.config[:proxy_uri]
